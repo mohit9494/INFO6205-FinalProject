@@ -39,11 +39,11 @@ public abstract class SortAPI<T extends Comparable<T>> {
         return t[i].compareTo(t[j]);
     }
 
-    protected boolean less(String a, String b) {
+    protected boolean less(T a, T b) {
         return a.compareTo(b) < 0;
     }
 
-    protected boolean less(String a, String b,@Nullable Locale locale){
+    protected boolean less(T a, T b,@Nullable Locale locale){
         if (locale==null) return this.less(a,b);
         return Collator.getInstance(locale).compare(a, b) < 0;
     }

@@ -1,13 +1,11 @@
 package edu.neu.coe.info6205.sort;
 
-import java.util.Locale;
 
-
-public class DualPivotQuicksort extends SortAPI<String> {
+public class DualPivotQuicksort<T extends Comparable<T>> extends SortAPI<T> {
 
 
     @Override
-    protected void sort(String[] arr, int from, int to) {
+    protected void sort(T[] arr, int from, int to) {
         if (to <= from) return;
 
         // a[low] must be <= a[high]

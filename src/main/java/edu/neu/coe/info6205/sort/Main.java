@@ -15,7 +15,7 @@ public class Main {
         String[] k = FileReader.fileReader(fileName);
         String[] a = FileReader.fileReader(fileName);
         // String[] k = {"Zebra", "Copper", "Kela", "Coward"};
-        new DualPivotQuicksort().withLocale(Locale.CHINA).sort(k);
+        new DualPivotQuicksort<String>().withLocale(Locale.CHINA).sort(k);
         // MSDStringSort.sort(k);
         System.out.println(k[0]);
         System.out.println(k[1]);
