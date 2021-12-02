@@ -31,4 +31,14 @@ public class SortUtils {
         a[j] = a[i];
         a[i] = temp;
     }
+
+    public static int findMaxLengthPinyin(String[] strArr) {
+        int maxLength = getPinYinString(strArr[0]).length();
+        for (String str : strArr) {
+            maxLength = Math.max(maxLength, getPinYinString(str).length());
+        }
+
+        return maxLength;
+    }
 }
+
