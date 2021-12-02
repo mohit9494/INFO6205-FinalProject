@@ -77,7 +77,9 @@ public class LSDStringSort {
      * @param to     This is the ending index up until which sorting operation will be continued
      */
     public void sort(String[] strArr, int from, int to) {
-        int maxLength = findMaxLength(strArr);
+        // int maxLength = findMaxLength(strArr);
+        // finding max length of chinese pinyin character
+        int maxLength = SortUtils.findMaxLengthPinyin(strArr);
         for (int i = maxLength - 1; i >= 0; i--)
             charSort(strArr, i, from, to);
     }

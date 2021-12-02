@@ -10,7 +10,7 @@ public class Main {
     public static void main(String[] args) throws URISyntaxException, IOException {
 
         String fileName = "shuffledChinese.txt";
-        System.out.println("******** tEST **********");
+        System.out.println("******** TEST **********");
         String[] k = FileReader.fileReader(fileName);
         String[] a = FileReader.fileReader(fileName);
         // String[] k = {"Zebra", "Copper", "Kela", "Coward"};
