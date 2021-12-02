@@ -19,7 +19,7 @@ public class DualPivotQuicksort<T extends Comparable<T>> extends SortAPI<T> {
 
         while (i <= gt) {
             if (this.less(arr[i], arr[from], this.getLocale())) this.swap(arr, lt++, i++);
-            else if (this.less(arr[to], arr[from],this.getLocale())) this.swap(arr, i, gt--);
+            else if (this.less(arr[to], arr[i],this.getLocale())) this.swap(arr, i, gt--);
             else i++;
         }
 
