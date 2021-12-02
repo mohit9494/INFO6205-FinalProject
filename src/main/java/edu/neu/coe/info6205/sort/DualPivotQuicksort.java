@@ -1,45 +1,41 @@
 package edu.neu.coe.info6205.sort;
 
-import static edu.neu.coe.info6205.util.SortUtils.less_chineseString;
-import static edu.neu.coe.info6205.util.SortUtils.swap;
+import java.util.Locale;
 
-public class DualPivotQuicksort {
 
-    public static void sort(String[] a) {
-        sort(a, 0, a.length - 1);
-    }
+public class DualPivotQuicksort extends SortAPI<String> {
 
-    private static void sort(String[] a, int low, int high) {
 
-        if (high <= low) return;
+    @Override
+    public void sort(String[] arr, int from, int to) {
+        if (to <= from) return;
 
         // a[low] must be <= a[high]
-        if (less_chineseString(a[high], a[low])) {
-            swap(a, low, high);
+        if (this.less(arr[to], arr[from], this.getLocale())) {
+            swap(arr, from, to);
         }
 
-        int lt = low + 1;
-        int gt = high - 1;
-        int i = low + 1;
+        int lt = from + 1;
+        int gt = to - 1;
+        int i = from + 1;
 
         while (i <= gt) {
-            if (less_chineseString(a[i], a[low])) swap(a, lt++, i++);
-            else if (less_chineseString(a[high], a[low])) swap(a, i, gt--);
+            if (this.less(arr[i], arr[from], this.getLocale())) this.swap(arr, lt++, i++);
+            else if (this.less(arr[to], arr[from],this.getLocale())) this.swap(arr, i, gt--);
             else i++;
         }
 
         // Moving the left and right pivot elements
-        swap(a, low, --lt);
-        swap(a, high, ++gt);
+        this.swap(arr, from, --lt);
+        this.swap(arr, to, ++gt);
 
         // recursively sort three subarrays
-        sort(a, low, lt - 1);
+        this.sort(arr, from, lt - 1);
 
         // only sorting if pivot elements are in place
-        if (less_chineseString(a[lt], a[gt])) sort(a, lt + 1, gt - 1);
+        if (this.less(arr[lt], arr[gt], this.getLocale())) this.sort(arr, lt + 1, gt - 1);
 
-        sort(a, gt + 1, high);
-
+        this.sort(arr, gt + 1, to);
 
     }
 

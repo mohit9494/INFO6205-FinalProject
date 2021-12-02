@@ -4,6 +4,7 @@ import edu.neu.coe.info6205.util.FileReader;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.util.Locale;
 
 public class Main {
 
@@ -14,7 +15,7 @@ public class Main {
         String[] k = FileReader.fileReader(fileName);
         String[] a = FileReader.fileReader(fileName);
         // String[] k = {"Zebra", "Copper", "Kela", "Coward"};
-        DualPivotQuicksort.sort(k);
+        new DualPivotQuicksort().withLocale(Locale.CHINA).sort(k);
         // MSDStringSort.sort(k);
         System.out.println(k[0]);
         System.out.println(k[1]);
