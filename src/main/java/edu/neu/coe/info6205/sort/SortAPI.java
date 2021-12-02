@@ -26,6 +26,15 @@ public abstract class SortAPI<T extends Comparable<T>> {
 
     public abstract void sort(@NotNull T[] t, int from, int to);
 
+    /**
+     * Sort Method used for 3 way sorts
+     * @param t
+     * @param from
+     * @param to
+     * @param d
+     */
+    public void sort(@NotNull T[] t, int from, int to, int d){};
+
     protected int compare(@NotNull T[] t, int i, int j){
         return t[i].compareTo(t[j]);
     }
