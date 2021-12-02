@@ -7,6 +7,10 @@ import org.jetbrains.annotations.Nullable;
 
 import java.text.Collator;
 import java.util.Locale;
+import java.util.function.BinaryOperator;
+import java.util.function.Consumer;
+import java.util.function.Supplier;
+import java.util.function.UnaryOperator;
 
 /**
  * @author Sai Akhil
@@ -14,6 +18,8 @@ import java.util.Locale;
 public abstract class SortAPI<T extends Comparable<T>> {
 
     private Locale locale;
+    private UnaryOperator<T> operator;
+    private BinaryOperator<T> binaryOperator;
 
 
     /**
@@ -68,5 +74,23 @@ public abstract class SortAPI<T extends Comparable<T>> {
     public SortAPI<T> withLocale(Locale locale) {
         this.locale = locale;
         return this;
+    }
+
+    public SortAPI<T> withOperator(UnaryOperator<T> unaryOperator){
+        this.operator = unaryOperator;
+        return this;
+    }
+
+    protected UnaryOperator<T> getOperator(){
+        return this.operator;
+    }
+
+    public SortAPI<T> withBinaryOperator(BinaryOperator<T> binaryOperator){
+        this.binaryOperator = binaryOperator;
+        return this;
+    }
+
+    protected BinaryOperator<T> getBinaryOperator(){
+        return this.binaryOperator;
     }
 }
