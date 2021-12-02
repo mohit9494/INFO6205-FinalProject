@@ -24,7 +24,7 @@ public abstract class SortAPI<T extends Comparable<T>> {
         this.sort(t,0,t.length-1);
     }
 
-    public abstract void sort(@NotNull T[] t, int from, int to);
+    protected abstract void sort(@NotNull T[] t, int from, int to);
 
     /**
      * Sort Method used for 3 way sorts
@@ -33,7 +33,7 @@ public abstract class SortAPI<T extends Comparable<T>> {
      * @param to
      * @param d
      */
-    public void sort(@NotNull T[] t, int from, int to, int d){};
+    protected void sort(@NotNull T[] t, int from, int to, int d){};
 
     protected int compare(@NotNull T[] t, int i, int j){
         return t[i].compareTo(t[j]);

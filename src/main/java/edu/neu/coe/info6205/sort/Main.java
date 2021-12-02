@@ -24,7 +24,7 @@ public class Main {
         System.out.println(k[4]);
 
         System.out.println();
-        ThreeWayRadixQuicksort.sort(a);
+        new ThreeWayRadixQuicksort().sort(a);
 
         System.out.println(a[0]);
         System.out.println(a[1]);

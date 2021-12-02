@@ -7,7 +7,7 @@ public class DualPivotQuicksort extends SortAPI<String> {
 
 
     @Override
-    public void sort(String[] arr, int from, int to) {
+    protected void sort(String[] arr, int from, int to) {
         if (to <= from) return;
 
         // a[low] must be <= a[high]
