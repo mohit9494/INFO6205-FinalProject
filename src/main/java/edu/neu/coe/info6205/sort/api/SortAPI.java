@@ -16,7 +16,7 @@ import java.util.function.UnaryOperator;
 public abstract class SortAPI<T extends Comparable<T>> {
 
     private Locale locale;
-    private UnaryOperator<T> unaryOperator;
+    private UnaryOperator<String> unaryOperator;
     private BinaryOperator<T> binaryOperator;
 
 
@@ -86,12 +86,12 @@ public abstract class SortAPI<T extends Comparable<T>> {
         return this;
     }
 
-    public SortAPI<T> withUnaryOperator(UnaryOperator<T> unaryOperator) {
+    public SortAPI<T> withUnaryOperator(UnaryOperator<String> unaryOperator) {
         this.unaryOperator = unaryOperator;
         return this;
     }
 
-    protected UnaryOperator<T> getUnaryOperator() {
+    protected UnaryOperator<String> getUnaryOperator() {
         return this.unaryOperator;
     }
 
@@ -102,6 +102,11 @@ public abstract class SortAPI<T extends Comparable<T>> {
 
     protected BinaryOperator<T> getBinaryOperator() {
         return this.binaryOperator;
+    }
+
+    protected int getCharAtPosition(@NotNull T str, int charPosition, @Nullable UnaryOperator<String> stringSupplier) {
+        String currentStr = (stringSupplier != null) ? stringSupplier.apply(String.valueOf(str)) : String.valueOf(str);
+        return (charPosition >= currentStr.length()) ? -1 : currentStr.charAt(charPosition);
     }
 
 
