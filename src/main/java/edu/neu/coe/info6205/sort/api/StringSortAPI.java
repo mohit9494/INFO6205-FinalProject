@@ -2,7 +2,6 @@ package edu.neu.coe.info6205.sort.api;
 
 import net.sourceforge.pinyin4j.PinyinHelper;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.function.UnaryOperator;
 
@@ -11,12 +10,7 @@ import java.util.function.UnaryOperator;
  */
 public abstract class StringSortAPI extends SortAPI<String> {
 
-    protected int getCharAtPosition(@NotNull String str, int charPosition, @Nullable UnaryOperator<String> stringSupplier) {
-        String currentStr = (stringSupplier != null) ? stringSupplier.apply(str) : str;
-        return (charPosition >= currentStr.length()) ? 0 : currentStr.charAt(charPosition);
-    }
-
-    protected String getCustomStringFromOperator(String s) {
+    protected String getCustomStringFromOperator(@NotNull String s) {
         return (this.getUnaryOperator() == null) ? s : this.getUnaryOperator().apply(s);
     }
 
