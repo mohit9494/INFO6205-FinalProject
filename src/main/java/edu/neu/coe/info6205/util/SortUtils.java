@@ -16,7 +16,6 @@ public class SortUtils {
         for (char c : src.toCharArray()) {
             pinyin.append(PinyinHelper.toHanyuPinyinStringArray(c)[0]);
         }
-
         return pinyin.toString();
     }
 
