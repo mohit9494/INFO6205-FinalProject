@@ -11,7 +11,7 @@ import java.util.function.BinaryOperator;
 public class MSDStringSort extends SortAPI<String> {
 
     private final int radix = 65536;
-    private  int cutoff = 1;
+    private  int cutoff = 15;
     private final String[] aux;       // auxiliary array for distribution
 
     private BinaryOperator<String> insertionSortMSDOperator = null;
@@ -84,7 +84,7 @@ public class MSDStringSort extends SortAPI<String> {
     @Override
     protected void sort(@NotNull String[] arr, int from, int to, int d) {
         if (to < from + cutoff && this.insertionSortMSDOperator != null)
-            new InsertionSortMSD<>(this.insertionSortMSDOperator, d).sort(arr);
+            new InsertionSortMSD<>(this.insertionSortMSDOperator, d).sort(arr,from,to,d);
         else {
             int[] count = new int[radix + 2];        // Compute frequency counts.
             for (int i = from; i <= to; i++)
