@@ -16,6 +16,7 @@ public class TimSort<T extends Comparable<T>> extends SortAPI<T> implements Comp
         Arrays.sort(t,from,to+1,this);
     }
 
+    @SuppressWarnings("ComparatorMethodParameterNotUsed")
     @Override
     public int compare(T o1, T o2) {
         return (this.less(o1,o2,this.getLocale())) ? -1:1;

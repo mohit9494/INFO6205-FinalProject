@@ -11,6 +11,9 @@ import java.util.Locale;
 
 import static org.junit.Assert.assertArrayEquals;
 
+/**
+ * @author Sai Akhil
+ */
 public class TimSortTest {
     @Test
     public void sortInteger0(){
