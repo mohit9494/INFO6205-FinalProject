@@ -13,14 +13,14 @@ public class LSDStringSort extends StringSortAPI {
         String[] result = new String[strArr.length];
 
         for (int i = from; i <= to; i++) {
-            int c = this.getCharAtPosition(strArr[i], charPosition, this.getOperator());
+            int c = this.getCharAtPosition(strArr[i], charPosition, this.getUnaryOperator());
             count[c + 2]++;
         }
 
         for (int r = 1; r < ASCII_RANGE + 2; r++) count[r] += count[r - 1];
 
         for (int i = from; i <= to; i++) {
-            int c = this.getCharAtPosition(strArr[i], charPosition, this.getOperator());
+            int c = this.getCharAtPosition(strArr[i], charPosition, this.getUnaryOperator());
             result[count[c + 1]++] = strArr[i];
         }
 
