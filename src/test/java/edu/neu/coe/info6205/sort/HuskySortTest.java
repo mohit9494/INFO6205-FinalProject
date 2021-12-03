@@ -1,6 +1,7 @@
 package edu.neu.coe.info6205.sort;
 
-import edu.neu.coe.info6205.util.HuskyCoderFactory;
+import edu.neu.coe.info6205.sort.huskysort.HuskyCoderFactory;
+import edu.neu.coe.info6205.sort.huskysort.PureHuskySort;
 import org.junit.Test;
 
 import java.util.Arrays;

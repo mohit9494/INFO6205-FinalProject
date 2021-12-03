@@ -1,14 +1,9 @@
 package edu.neu.coe.info6205.sort;
 
-import edu.neu.coe.info6205.util.FileReader;
-import edu.neu.coe.info6205.util.HuskyCoderFactory;
 import org.junit.Test;
 
-import java.io.IOException;
-import java.net.URISyntaxException;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.Locale;
 
 import static org.junit.Assert.assertArrayEquals;
 

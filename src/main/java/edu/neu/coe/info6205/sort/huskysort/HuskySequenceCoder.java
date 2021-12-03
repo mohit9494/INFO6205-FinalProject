@@ -1,7 +1,7 @@
 /*
   (c) Copyright 2018, 2019 Phasmid Software
  */
-package edu.neu.coe.info6205.util;
+package edu.neu.coe.info6205.sort.huskysort;
 
 /**
  * This interface extends HuskySort for object which are sub-classes of CharSequence.

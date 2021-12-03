@@ -1,7 +1,7 @@
 /*
   (c) Copyright 2018, 2019 Phasmid Software
  */
-package edu.neu.coe.info6205.util;
+package edu.neu.coe.info6205.sort.huskysort;
 
 /**
  * Interface defining the behavior of a type X which can be HuskySorted.

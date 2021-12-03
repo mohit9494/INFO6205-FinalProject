@@ -1,7 +1,7 @@
 /*
   (c) Copyright 2018, 2019 Phasmid Software
  */
-package edu.neu.coe.info6205.util;
+package edu.neu.coe.info6205.sort.huskysort;
 
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;

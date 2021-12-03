@@ -1,7 +1,7 @@
-package edu.neu.coe.info6205.sort;
+package edu.neu.coe.info6205.sort.huskysort;
 
+import edu.neu.coe.info6205.sort.InsertionSortMSD;
 import edu.neu.coe.info6205.util.*;
-import org.junit.Test;
 
 import java.io.IOException;
 import java.net.URISyntaxException;

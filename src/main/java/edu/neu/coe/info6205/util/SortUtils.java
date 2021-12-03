@@ -19,19 +19,6 @@ public class SortUtils {
         return pinyin.toString();
     }
 
-    public static boolean less(String v, String w) {
-        return v.compareTo(w) < 0;
-    }
-
-    public static boolean less_chineseString(String v, String w) {
-        return Collator.getInstance(Locale.CHINA).compare(v, w) < 0;
-    }
-
-    public static void swap(Object[] a, int j, int i) {
-        Object temp = a[j];
-        a[j] = a[i];
-        a[i] = temp;
-    }
 
     public static int findMaxLengthPinyin(String[] strArr) {
         int maxLength = getPinYinString(strArr[0]).length();
