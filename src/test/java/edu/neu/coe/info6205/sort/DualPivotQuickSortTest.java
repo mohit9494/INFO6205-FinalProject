@@ -17,19 +17,29 @@ import static org.junit.Assert.assertArrayEquals;
 public class DualPivotQuickSortTest {
 
     @Test
-    public void sortInteger0(){
+    public void sortInteger0() {
         int n = 20;
-        Integer[] input = new Integer[]{4,3,5,6,1};
-        Integer[] expected = Arrays.copyOf(input,input.length);
+        Integer[] input = new Integer[]{4, 3, 5, 6, 1};
+        Integer[] expected = Arrays.copyOf(input, input.length);
         Arrays.sort(expected);
         new DualPivotQuicksort<Integer>().sort(input);
-        assertArrayEquals(expected,input);
+        assertArrayEquals(expected, input);
     }
 
     @Test
-    public void sortEnglish0(){
-        String[] input = new String[]{"c","b","a","f","d","e"};
-        String[] expected = new String[]{"a","b","c","d","e","f"};
+    public void sortInteger1() {
+        int n = 20;
+        Integer[] expected = new Integer[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16};
+        Integer[] input = Arrays.copyOf(expected, expected.length);
+        Collections.shuffle(Arrays.asList(input));
+        new DualPivotQuicksort<Integer>().sort(input);
+        assertArrayEquals(expected, input);
+    }
+
+    @Test
+    public void sortEnglish0() {
+        String[] input = new String[]{"c", "b", "a", "f", "d", "e"};
+        String[] expected = new String[]{"a", "b", "c", "d", "e", "f"};
         new DualPivotQuicksort<String>().sort(input);
         assertArrayEquals(expected, input);
     }
