@@ -21,8 +21,6 @@ public class InsertionSortMSD<T extends Comparable<T>> extends SortAPI<T> {
         this.withBinaryOperator(binaryOperator);
     }
 
-
-
     @Override
     protected void sort(@NotNull T[] arr, int from, int to, int d) {
         T temp = (arr instanceof String[])? (T)String.valueOf(d):null;
@@ -41,11 +39,9 @@ public class InsertionSortMSD<T extends Comparable<T>> extends SortAPI<T> {
         return pinyin.substring(Integer.parseInt(d));
     };
 
-    public static BinaryOperator<String> getStringBinaryOperator() {
-        return (str, d) -> {
-            int tempD = Integer.parseInt(d);
-            if (tempD<str.length()) return str.substring(tempD);
-            return "-1";
-        };
-    }
+    public static BinaryOperator<String> SUBSTRING_BINARY_OPERATOR = (str, d) -> {
+        int tempD = Integer.parseInt(d);
+        if (tempD < str.length()) return str.substring(tempD);
+        return "-1";
+    };
 }

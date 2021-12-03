@@ -25,7 +25,7 @@ public class InsertionSortMSDTest {
     public void sortEnglish0(){
         String[] input = new String[]{"c","b","a","f","d","e"};
         String[] expected = new String[]{"a","b","c","d","e","f"};
-        new InsertionSortMSD<>(InsertionSortMSD.getStringBinaryOperator()).sort(input, 0);
+        new InsertionSortMSD<>(InsertionSortMSD.SUBSTRING_BINARY_OPERATOR).sort(input, 0);
         assertArrayEquals(expected, input);
     }
 
@@ -33,7 +33,7 @@ public class InsertionSortMSDTest {
     public void sortEnglish1(){
         String[] input = "she sells seashells seashore shells she sells surely seashells".split(" ");
         String[] expected = "seashells seashells seashore sells sells she she shells surely".split(" ");
-        new InsertionSortMSD<>(InsertionSortMSD.getStringBinaryOperator()).sort(input, 1);
+        new InsertionSortMSD<>(InsertionSortMSD.SUBSTRING_BINARY_OPERATOR).sort(input, 1);
         assertArrayEquals(expected, input);
     }
 
@@ -41,7 +41,7 @@ public class InsertionSortMSDTest {
     public void sortEnglish2(){
         String[] input = "sells seashells seashore sells seashells".split(" ");
         String[] expected = "seashells seashells seashore sells sells".split(" ");
-        new InsertionSortMSD<>(InsertionSortMSD.getStringBinaryOperator()).sort(input, 2);
+        new InsertionSortMSD<>(InsertionSortMSD.SUBSTRING_BINARY_OPERATOR).sort(input, 2);
         assertArrayEquals(expected, input);
     }
 
@@ -78,7 +78,7 @@ public class InsertionSortMSDTest {
         String[] expected = new String[]{"అంటూ","అడగ్గా","అతిథిగా","అది","అనిల్","అనిల్","అన్నారు","అన్‌స్టాపబుల్‌","అలరించార","ఆట","ఆడుకున్నారు","ఇద్దరితో","ఈ","ఈ","ఈ","ఎందుకో","ఏది","ఓ","ఓ","ఓ","కార్యక్రమ","కార్యక్రమానికి","కోప్పడ్డారు","చూపించి","చేశారు","తనకెంత","తీసుకొచ్చిన","దర్శకుడు","దీన్ని","దేనికి","నటుడు","నవ్వులు","పంచారు","పడితే","పేరు","ఫొటోను","బాలకృష్ణ","బాలకృష్ణ","బాలకృష్ణ","బాలకృష్ణ","బ్రహ్మానందం","బ్రహ్మానందం","బ్రహ్మానందంపై","మరో","మాంచి","రావిపూడి","రావిపూడి","విచ్చేసి","వినోదం","సంభాషించారు","సమాధానం"};
         String[] input = Arrays.copyOf(expected,expected.length);
         Collections.shuffle(Arrays.asList(input));
-        new InsertionSortMSD<>(InsertionSortMSD.getStringBinaryOperator()).sort(input, 0);
+        new InsertionSortMSD<>(InsertionSortMSD.SUBSTRING_BINARY_OPERATOR).sort(input, 0);
         assertArrayEquals(expected, input);
     }
 
@@ -87,7 +87,7 @@ public class InsertionSortMSDTest {
         String[] expected = new String[]{"అన్‌స్టాపబుల్‌","అలరించార","ఆట","ఆడుకున్నారు","ఇద్దరితో","ఈ","చూపించి","దేనికి","నటుడు","నవ్వులు","మరో","మాంచి","విచ్చేసి","సమాధానం"};
         String[] input = Arrays.copyOf(expected,expected.length);
         Collections.shuffle(Arrays.asList(input));
-        new InsertionSortMSD<>(InsertionSortMSD.getStringBinaryOperator()).sort(input, 0);
+        new InsertionSortMSD<>(InsertionSortMSD.SUBSTRING_BINARY_OPERATOR).sort(input, 0);
         assertArrayEquals(expected, input);
     }
 
@@ -96,7 +96,7 @@ public class InsertionSortMSDTest {
         String[] expected = new String[]{"అనిల్","అన్నారు","అన్‌స్టాపబుల్‌","అలరించార","ఆట","ఆడుకున్నారు","ఇద్దరితో","ఈ","ఈ","ఈ","ఎందుకో","ఏది","ఓ","ఓ","ఓ","చూపించి","చేశారు","తనకెంత","తీసుకొచ్చిన","దర్శకుడు","దీన్ని","దేనికి","నటుడు","నవ్వులు","పంచారు","పడితే","బాలకృష్ణ","బాలకృష్ణ","బ్రహ్మానందం","బ్రహ్మానందం","బ్రహ్మానందంపై","మరో","మాంచి","రావిపూడి","రావిపూడి","విచ్చేసి","వినోదం","సంభాషించారు","సమాధానం"};
         String[] input = Arrays.copyOf(expected,expected.length);
         Collections.shuffle(Arrays.asList(input));
-        new InsertionSortMSD<>(InsertionSortMSD.getStringBinaryOperator()).sort(input, 0);
+        new InsertionSortMSD<>(InsertionSortMSD.SUBSTRING_BINARY_OPERATOR).sort(input, 0);
         assertArrayEquals(expected, input);
     }
 
