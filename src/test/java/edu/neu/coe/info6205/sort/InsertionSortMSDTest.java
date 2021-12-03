@@ -50,13 +50,13 @@ public class InsertionSortMSDTest {
         assertArrayEquals(expected, input);
     }
 
-    @Test
-    public void sortChinese0() throws URISyntaxException, IOException {
-        String[] k = FileReader.fileReader("shuffledChinese.txt");
-        String[] a = FileReader.fileReader("sortedChinese.txt");
-        new InsertionSortMSD<>(InsertionSortMSD.getPinYinStringBinaryOperator(),0).sort(k);
-        assertArrayEquals(a, k);
-    }
+//    @Test
+//    public void sortChinese0() throws URISyntaxException, IOException {
+//        String[] k = FileReader.fileReader("shuffledChinese.txt");
+//        String[] a = FileReader.fileReader("sortedChinese.txt");
+//        new InsertionSortMSD<>(InsertionSortMSD.getPinYinStringBinaryOperator(),0).sort(k);
+//        assertArrayEquals(a, k);
+//    }
 
     @Test
     public void sortTelugu0() {

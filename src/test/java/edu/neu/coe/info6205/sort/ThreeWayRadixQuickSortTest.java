@@ -49,7 +49,7 @@ public class ThreeWayRadixQuickSortTest {
     }
 
     @Test
-    public void sortChineese0() throws URISyntaxException, IOException {
+    public void sortChinese0() throws URISyntaxException, IOException {
         String[] k = FileReader.fileReader("shuffledChinese.txt");
         String[] a = FileReader.fileReader("sortedChinese.txt");
         new ThreeWayRadixQuicksort<>(ThreeWayRadixQuicksort.getPinyinCharOperator()).sort(k);
