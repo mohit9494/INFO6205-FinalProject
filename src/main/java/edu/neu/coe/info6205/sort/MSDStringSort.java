@@ -84,7 +84,7 @@ public class MSDStringSort extends SortAPI<String> {
     @Override
     protected void sort(@NotNull String[] arr, int from, int to, int d) {
         if (to < from + cutoff && this.insertionSortMSDOperator != null)
-            new InsertionSortMSD<>(this.insertionSortMSDOperator, d).sort(arr,from,to,d);
+            new InsertionSortMSD<>(this.insertionSortMSDOperator).sort(arr, from, to, d);
         else {
             int[] count = new int[radix + 2];        // Compute frequency counts.
             for (int i = from; i <= to; i++)

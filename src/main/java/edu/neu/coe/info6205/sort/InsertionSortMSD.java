@@ -12,21 +12,15 @@ import java.util.function.BinaryOperator;
  */
 public class InsertionSortMSD<T extends Comparable<T>> extends SortAPI<T> {
 
-    int digit = 0;
 
     public InsertionSortMSD() {
-        this((item,d) -> item,0);
+        this((item, d) -> item);
     }
 
-    public InsertionSortMSD(BinaryOperator<T> binaryOperator, int digit) {
+    public InsertionSortMSD(BinaryOperator<T> binaryOperator) {
         this.withBinaryOperator(binaryOperator);
-        this.digit = digit;
     }
 
-    @Override
-    protected void sort(@NotNull T[] t, int from, int to) {
-        this.sort(t, from, to, this.digit);
-    }
 
 
     @Override
