@@ -1,4 +1,4 @@
-package edu.neu.coe.info6205.sort;
+package edu.neu.coe.info6205.sort.api;
 
 
 
@@ -8,8 +8,6 @@ import org.jetbrains.annotations.Nullable;
 import java.text.Collator;
 import java.util.Locale;
 import java.util.function.BinaryOperator;
-import java.util.function.Consumer;
-import java.util.function.Supplier;
 import java.util.function.UnaryOperator;
 
 /**
@@ -85,12 +83,16 @@ public abstract class SortAPI<T extends Comparable<T>> {
         return this.operator;
     }
 
-    public SortAPI<T> withBinaryOperator(BinaryOperator<T> binaryOperator){
+    public SortAPI<T> withBinaryOperator(BinaryOperator<T> binaryOperator) {
         this.binaryOperator = binaryOperator;
         return this;
     }
 
-    protected BinaryOperator<T> getBinaryOperator(){
+    protected BinaryOperator<T> getBinaryOperator() {
         return this.binaryOperator;
     }
+
+//    protected int getCharAtPosition(T t, int position){
+//
+//    }
 }

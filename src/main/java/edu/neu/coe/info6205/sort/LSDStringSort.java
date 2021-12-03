@@ -1,31 +1,26 @@
 package edu.neu.coe.info6205.sort;
 
-import edu.neu.coe.info6205.util.SortUtils;
+import edu.neu.coe.info6205.sort.api.StringSortAPI;
 import org.jetbrains.annotations.NotNull;
 
 
-public class LSDStringSort extends SortAPI<String> {
+public class LSDStringSort extends StringSortAPI {
 
     private static final int ASCII_RANGE = 65536;
-
-    private int getCharAtPosition(String str, int charPosition) {
-        String currentStr = this.getStringBasedOnLocale(str);
-        return (charPosition >= currentStr.length()) ? 0 : currentStr.charAt(charPosition);
-    }
 
     private void charSort(String[] strArr, int charPosition, int from, int to) {
         int[] count = new int[ASCII_RANGE + 2];
         String[] result = new String[strArr.length];
 
         for (int i = from; i <= to; i++) {
-            int c = this.getCharAtPosition(strArr[i], charPosition);
+            int c = this.getCharAtPosition(strArr[i], charPosition, this.getOperator());
             count[c + 2]++;
         }
 
         for (int r = 1; r < ASCII_RANGE + 2; r++) count[r] += count[r - 1];
 
         for (int i = from; i <= to; i++) {
-            int c = this.getCharAtPosition(strArr[i], charPosition);
+            int c = this.getCharAtPosition(strArr[i], charPosition, this.getOperator());
             result[count[c + 1]++] = strArr[i];
         }
 
@@ -40,13 +35,10 @@ public class LSDStringSort extends SortAPI<String> {
     private int getMaxStringLength(@NotNull String[] strArray) {
         int maxLength = 0;
         for (String s : strArray) {
-            maxLength = Math.max(maxLength, this.getStringBasedOnLocale(s).length());
+            maxLength = Math.max(maxLength, this.getCustomStringFromOperator(s).length());
         }
         return maxLength;
     }
 
-    private String getStringBasedOnLocale(@NotNull String str) {
-        return (this.getLocale() == null) ? str : SortUtils.getPinYinString(str);
-    }
 
 }

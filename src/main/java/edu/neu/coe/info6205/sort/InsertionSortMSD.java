@@ -1,5 +1,6 @@
 package edu.neu.coe.info6205.sort;
 
+import edu.neu.coe.info6205.sort.api.SortAPI;
 import net.sourceforge.pinyin4j.PinyinHelper;
 import org.jetbrains.annotations.NotNull;
 
@@ -38,15 +39,13 @@ public class InsertionSortMSD<T extends Comparable<T>> extends SortAPI<T> {
             }
     }
 
-    public static BinaryOperator<String> getPinYinStringBinaryOperator() {
-        return (str, d) -> {
-            StringBuilder pinyin = new StringBuilder();
-            for (char c : str.toCharArray()) {
-                pinyin.append(PinyinHelper.toHanyuPinyinStringArray(c)[0]);
-            }
-            return pinyin.substring(Integer.parseInt(d));
-        };
-    }
+    public static final BinaryOperator<String> PINYIN_CHAR_SUBSTRING_BINARY_OPERATOR = (str, d) -> {
+        StringBuilder pinyin = new StringBuilder();
+        for (char c : str.toCharArray()) {
+            pinyin.append(PinyinHelper.toHanyuPinyinStringArray(c)[0]);
+        }
+        return pinyin.substring(Integer.parseInt(d));
+    };
 
     public static BinaryOperator<String> getStringBinaryOperator() {
         return (str, d) -> {

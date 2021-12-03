@@ -1,14 +1,9 @@
 package edu.neu.coe.info6205.sort;
 
-import edu.neu.coe.info6205.util.FileReader;
-import edu.neu.coe.info6205.util.SortUtils;
 import org.junit.Test;
 
-import java.io.IOException;
-import java.net.URISyntaxException;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.Locale;
 
 import static org.junit.Assert.assertArrayEquals;
 
@@ -56,7 +51,7 @@ public class InsertionSortMSDTest {
         String[] expected = new String[]{"阿安","阿彬","阿兵","阿冰冰","阿晨","阿称","阿丛","阿丹丹","阿德力","阿迪迪","阿迪江","阿迪雅","阿栋","阿繁","阿方","阿菲","阿飞儿","阿飞飞","阿芬","阿丰","阿夏","阿鲜","阿湘","阿晓","阿新","阿行","阿旭","阿轩","乔建雄","乔建业","乔建永","乔建云","乔建珍","乔建忠","乔江","乔江涛","乔娇","乔娇娇"};
         String[] input = Arrays.copyOf(expected,expected.length);
         Collections.shuffle(Arrays.asList(input));
-        new InsertionSortMSD<>(InsertionSortMSD.getPinYinStringBinaryOperator(),0).sort(input);
+        new InsertionSortMSD<>(InsertionSortMSD.PINYIN_CHAR_SUBSTRING_BINARY_OPERATOR, 0).sort(input);
         assertArrayEquals(expected, input);
     }
 
@@ -65,7 +60,7 @@ public class InsertionSortMSDTest {
         String[] expected = new String[]{"阿彬","阿兵","阿称","阿栋","阿菲","阿芬","阿丰","阿晓","阿新","乔江","乔江涛","乔娇","乔娇娇"};
         String[] input = Arrays.copyOf(expected,expected.length);
         Collections.shuffle(Arrays.asList(input));
-        new InsertionSortMSD<>(InsertionSortMSD.getPinYinStringBinaryOperator(),0).sort(input);
+        new InsertionSortMSD<>(InsertionSortMSD.PINYIN_CHAR_SUBSTRING_BINARY_OPERATOR, 0).sort(input);
         assertArrayEquals(expected, input);
     }
 
@@ -74,7 +69,7 @@ public class InsertionSortMSDTest {
         String[] expected = new String[]{"阿安","阿彬","阿兵","阿冰冰","阿晨","阿称","阿丛","阿栋","阿繁","阿方","阿菲","阿丰","阿夏","阿鲜","阿行","阿旭","阿轩","乔建雄","乔建珍","乔建忠","乔江","乔江涛","乔娇","乔娇娇"};
         String[] input = Arrays.copyOf(expected,expected.length);
         Collections.shuffle(Arrays.asList(input));
-        new InsertionSortMSD<>(InsertionSortMSD.getPinYinStringBinaryOperator(),0).sort(input);
+        new InsertionSortMSD<>(InsertionSortMSD.PINYIN_CHAR_SUBSTRING_BINARY_OPERATOR, 0).sort(input);
         assertArrayEquals(expected, input);
     }
 

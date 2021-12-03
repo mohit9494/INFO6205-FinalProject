@@ -1,17 +1,18 @@
 package edu.neu.coe.info6205.sort;
 
+import edu.neu.coe.info6205.sort.api.SortAPI;
 import edu.neu.coe.info6205.util.SortUtils;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.function.BinaryOperator;
 
-public class ThreeWayRadixQuicksort<T extends Comparable<T>> extends SortAPI<T>{
+public class ThreeWayRadixQuicksort<T extends Comparable<T>> extends SortAPI<T> {
 
-    public ThreeWayRadixQuicksort(){
-        this((item,d)->d);
+    public ThreeWayRadixQuicksort() {
+        this((item, d) -> d);
     }
 
-    public ThreeWayRadixQuicksort(BinaryOperator<T> binaryOperator){
+    public ThreeWayRadixQuicksort(BinaryOperator<T> binaryOperator) {
         this.withBinaryOperator(binaryOperator);
     }
 
