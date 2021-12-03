@@ -22,24 +22,36 @@ public abstract class SortAPI<T extends Comparable<T>> {
 
     /**
      * Sorts a given array
+     *
      * @param t -= Array
      */
-    public void sort(@NotNull T[] t){
-        this.sort(t,0,t.length-1);
+    public void sort(@NotNull T[] t) {
+        this.sort(t, 0, t.length - 1);
     }
 
-    protected abstract void sort(@NotNull T[] t, int from, int to);
+    public void sort(@NotNull T[] t, int position) {
+        this.sort(t, 0, t.length - 1, position);
+    }
+
+    protected void sort(@NotNull T[] t, int from, int to) {
+        throw new IllegalStateException("Method is UnImplemented");
+    }
 
     /**
      * Sort Method used for 3 way sorts
+     *
      * @param t
      * @param from
      * @param to
      * @param d
      */
-    protected void sort(@NotNull T[] t, int from, int to, int d){};
+    protected void sort(@NotNull T[] t, int from, int to, int d) {
+        throw new IllegalStateException("Method is UnImplemented");
+    }
 
-    protected int compare(@NotNull T[] t, int i, int j){
+    ;
+
+    protected int compare(@NotNull T[] t, int i, int j) {
         return t[i].compareTo(t[j]);
     }
 
@@ -47,7 +59,7 @@ public abstract class SortAPI<T extends Comparable<T>> {
         return a.compareTo(b) < 0;
     }
 
-    protected boolean less(T a, T b,@Nullable Locale locale){
+    protected boolean less(T a, T b, @Nullable Locale locale) {
         if (locale==null) return this.less(a,b);
         return Collator.getInstance(locale).compare(a, b) < 0;
     }
