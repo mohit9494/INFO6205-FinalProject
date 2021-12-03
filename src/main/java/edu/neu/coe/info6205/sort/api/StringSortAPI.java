@@ -17,7 +17,7 @@ public abstract class StringSortAPI extends SortAPI<String> {
     }
 
     protected String getCustomStringFromOperator(String s) {
-        return (this.getOperator() == null) ? s : this.getOperator().apply(s);
+        return (this.getUnaryOperator() == null) ? s : this.getUnaryOperator().apply(s);
     }
 
     public static final UnaryOperator<String> PINYIN_STRING_SUPPLIER = (str) -> {
@@ -27,5 +27,6 @@ public abstract class StringSortAPI extends SortAPI<String> {
         }
         return stringBuilder.toString();
     };
+
 
 }
