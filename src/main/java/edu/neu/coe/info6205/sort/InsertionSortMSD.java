@@ -49,6 +49,10 @@ public class InsertionSortMSD<T extends Comparable<T>> extends SortAPI<T> {
     }
 
     public static BinaryOperator<String> getStringBinaryOperator() {
-        return (str, d) -> str.substring(Integer.parseInt(d));
+        return (str, d) -> {
+            int tempD = Integer.parseInt(d);
+            if (tempD<str.length()) return str.substring(tempD);
+            return "-1";
+        };
     }
 }
