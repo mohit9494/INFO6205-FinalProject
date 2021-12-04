@@ -5,6 +5,7 @@ import edu.neu.coe.info6205.sort.api.StringSortAPI;
 import edu.neu.coe.info6205.sort.huskysort.HuskyCoderFactory;
 import edu.neu.coe.info6205.sort.huskysort.PureHuskySort;
 import edu.neu.coe.info6205.util.FileReader;
+import org.jetbrains.annotations.Nullable;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -15,29 +16,32 @@ public class Main {
 
 
     public static void main(String[] args) throws URISyntaxException, IOException {
+        //read complete 4 million from chinese
+        System.out.println("Starting benchmark on Chinese words");
+        startBenchmarkOnSorts(FileReader.fileReader("shuffledChinese4M.txt"), Locale.CHINESE, true);
+    }
 
-        //read complete 4 million
-        String[] input = FileReader.fileReader("shuffledChinese.txt");
-
-        //Start benchmark with chinese
-        benchmarkHuskySort(input);
-        benchmarkTimSort(input,Locale.CHINESE);
-        benchmarkDualPivotQuickSort(input,Locale.CHINESE);
-        benchmarkLSDSort(input,true);
-        benchmarkMSDSort(input,true);
-        benchmarkThreeWayRadixSort(input,true);
-
+    public static void startBenchmarkOnSorts(String[] input, @Nullable Locale locale, boolean isChinese) {
+        for (int i = 0; i < 4; i++) {
+            String[] dataset = Arrays.copyOf(input, input.length / 4);
+            System.out.printf("Starting Sort Benchmark on array of length %d%n", dataset.length);
+            benchmarkHuskySort(dataset);
+            benchmarkTimSort(dataset, locale);
+            benchmarkDualPivotQuickSort(dataset, locale);
+            benchmarkLSDSort(dataset, isChinese);
+            benchmarkMSDSort(dataset, isChinese);
+            benchmarkThreeWayRadixSort(dataset, isChinese);
+        }
     }
 
 
-
-    private static void benchmarkHuskySort(String[] dataSet){
+    private static void benchmarkHuskySort(String[] dataSet) {
         Benchmark_Timer<String[]> benchmarkTimer = new Benchmark_Timer<>(
                 "Husky Sort Test",
                 array -> new PureHuskySort<>(HuskyCoderFactory.asciiCoder, false, false)
                         .sort(array));
         double randomSortTime = benchmarkTimer.runFromSupplier(dataSet::clone, 10);
-        System.out.println("Husky Sort Average Sort Time for dataset of size "+dataSet.length+" = "+randomSortTime+" ms");
+        System.out.println("Husky Sort Average Sort Time for dataset of size " + dataSet.length + " = " + randomSortTime + " ms");
     }
 
     private static void benchmarkTimSort(String[] dataSet, Locale locale){
