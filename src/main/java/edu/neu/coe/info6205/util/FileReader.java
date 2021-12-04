@@ -39,6 +39,7 @@ public class FileReader {
 
         } catch (Exception e) {
             System.out.println("*** Error occured in FileReader.java class ====> " + e.getMessage());
+            e.printStackTrace();
         } finally {
             br.close();
         }

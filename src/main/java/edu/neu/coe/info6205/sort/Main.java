@@ -10,6 +10,7 @@ import org.jetbrains.annotations.Nullable;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Locale;
 
 public class Main {
@@ -19,6 +20,11 @@ public class Main {
         //read complete 4 million from chinese
         System.out.println("Starting benchmark on Chinese words");
         startBenchmarkOnSorts(FileReader.fileReader("shuffledChinese4M.txt"), Locale.CHINESE, true);
+
+        System.out.println("Starting benchmark on English words");
+        String[] engs1M = FileReader.fileReader("ENG_1M.txt");
+        Collections.shuffle(Arrays.asList(engs1M));
+        startBenchmarkOnSorts(engs1M, null, false);
     }
 
     public static void startBenchmarkOnSorts(String[] input, @Nullable Locale locale, boolean isChinese) {
@@ -79,7 +85,7 @@ public class Main {
         Benchmark_Timer<String[]> benchmarkTimer = new Benchmark_Timer<>(
                 "MSD Sort Test",
                 array -> new MSDStringSort(array.length)
-                        .withInsertionSortMSDOperator(InsertionSortMSD.PINYIN_CHAR_SUBSTRING_BINARY_OPERATOR)
+                        .withInsertionSortMSDOperator((isChinese) ? InsertionSortMSD.PINYIN_CHAR_SUBSTRING_BINARY_OPERATOR : InsertionSortMSD.SUBSTRING_BINARY_OPERATOR)
                         .withUnaryOperator((isChinese)?StringSortAPI.PINYIN_STRING_SUPPLIER:null)
                         .sort(array));
         double randomSortTime = benchmarkTimer.runFromSupplier(dataSet::clone, 10);
