@@ -37,7 +37,7 @@ public class Main {
                 array -> new PureHuskySort<>(HuskyCoderFactory.asciiCoder, false, false)
                         .sort(array));
         double randomSortTime = benchmarkTimer.runFromSupplier(dataSet::clone, 10);
-        System.out.println("Husky Sort Average Sort Time = "+randomSortTime+" ms");
+        System.out.println("Husky Sort Average Sort Time for dataset of size "+dataSet.length+" = "+randomSortTime+" ms");
     }
 
     private static void benchmarkTimSort(String[] dataSet, Locale locale){
@@ -47,7 +47,7 @@ public class Main {
                         .withLocale(locale)
                         .sort(array));
         double randomSortTime = benchmark_timer.runFromSupplier(dataSet::clone, 10);
-        System.out.println("Tim Sort Average Sort Time = "+randomSortTime+" ms");
+        System.out.println("Tim Sort Average Sort Time for dataset of size "+dataSet.length+" = "+randomSortTime+" ms");
     }
 
     private static void benchmarkDualPivotQuickSort(String[] dataSet, Locale locale){
@@ -57,7 +57,7 @@ public class Main {
                             .withLocale(locale)
                             .sort(array));
         double randomSortTime = benchmarkTimer.runFromSupplier(dataSet::clone, 10);
-        System.out.println("Dual Pivot Quick Sort Average Sort Time = "+randomSortTime+" ms");
+        System.out.println("Dual Pivot Quick Sort Average Sort Time for dataset of size "+dataSet.length+" = "+randomSortTime+" ms");
     }
 
     private static void benchmarkLSDSort(String[] dataSet, boolean isChinese){
@@ -67,7 +67,7 @@ public class Main {
                         .withUnaryOperator((isChinese)?StringSortAPI.PINYIN_STRING_SUPPLIER:null)
                         .sort(array));
         double randomSortTime = benchmarkTimer.runFromSupplier(dataSet::clone, 10);
-        System.out.println("LSD String Sort Average Sort Time = "+randomSortTime+" ms");
+        System.out.println("LSD String Sort Average Sort Time for dataset of size "+dataSet.length+" = "+randomSortTime+" ms");
     }
 
     private static void benchmarkMSDSort(String[] dataSet, boolean isChinese){
@@ -79,7 +79,7 @@ public class Main {
                         .withUnaryOperator((isChinese)?StringSortAPI.PINYIN_STRING_SUPPLIER:null)
                         .sort(array));
         double randomSortTime = benchmarkTimer.runFromSupplier(dataSet::clone, 10);
-        System.out.println("MSD String Sort Average Sort Time = "+randomSortTime+" ms");
+        System.out.println("MSD String Sort Average Sort Time for dataset of size "+dataSet.length+" = "+randomSortTime+" ms");
     }
 
     private static void benchmarkThreeWayRadixSort(String[] dataSet, boolean isChinese){
@@ -89,7 +89,7 @@ public class Main {
                         .withUnaryOperator((isChinese)?StringSortAPI.PINYIN_STRING_SUPPLIER:null)
                         .sort(array));
         double randomSortTime = benchmarkTimer.runFromSupplier(dataSet::clone, 10);
-        System.out.println("Three way radix Sort Average Sort Time = "+randomSortTime+" ms");
+        System.out.println("Three way radix Sort Average Sort Time for dataset of size "+dataSet.length+" = "+randomSortTime+" ms");
     }
 
 
