@@ -33,11 +33,20 @@ public class ThreeWayRadixQuickSortTest {
     }
 
     @Test
-    public void sortEnglish2(){
+    public void sortEnglish2() {
         String[] input = "she sells seashells seashore shells she sells surely seashells".split(" ");
         String[] expected = "seashells seashells seashore sells sells she she shells surely".split(" ");
         new ThreeWayRadixQuicksort<String>().sort(input);
         assertArrayEquals(expected, input);
+    }
+
+    @Test
+    public void sortEnglishFile3() throws URISyntaxException, IOException {
+        String[] input = FileReader.fileReader("ENG_1M.txt");
+        new ThreeWayRadixQuicksort<String>().sort(input);
+        assert input[0].equals("1\t!\t25992");
+        assert input[100].equals("100087\t7i\t3");
+        assert input[800].equals("100717\tAldebaran\t3");
     }
 
 

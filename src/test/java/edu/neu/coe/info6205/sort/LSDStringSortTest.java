@@ -40,6 +40,15 @@ public class LSDStringSortTest {
         assertArrayEquals(expected, input);
     }
 
+    @Test
+    public void sortEnglishFile3() throws URISyntaxException, IOException {
+        String[] input = FileReader.fileReader("ENG_1M.txt");
+        new LSDStringSort().sort(input);
+        assert input[0].equals("1\t!\t25992");
+        assert input[100].equals("100087\t7i\t3");
+        assert input[800].equals("100717\tAldebaran\t3");
+    }
+
 
     @Test
     public void sortChinese0() {

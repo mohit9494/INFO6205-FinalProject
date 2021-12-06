@@ -23,12 +23,21 @@ public class HuskySortTest {
     }
 
     @Test
-    public void sortChinese98(){
-        String[] expected = new String[]{"阿芬","阿丰","阿夏","阿鲜","阿湘","阿晓","阿新","阿行","阿旭","阿轩","乔江","乔娇"};
-        String[] input = Arrays.copyOf(expected,expected.length);
+    public void sortChinese98() {
+        String[] expected = new String[]{"阿芬", "阿丰", "阿夏", "阿鲜", "阿湘", "阿晓", "阿新", "阿行", "阿旭", "阿轩", "乔江", "乔娇"};
+        String[] input = Arrays.copyOf(expected, expected.length);
         Collections.shuffle(Arrays.asList(input));
         new PureHuskySort<>(HuskyCoderFactory.asciiCoder, false, false).sort(input);
         assertArrayEquals(expected, input);
+    }
+
+    @Test
+    public void sortChineseFile1() throws URISyntaxException, IOException {
+        String[] input = FileReader.fileReader("shuffledChinese.txt");
+        new PureHuskySort<>(HuskyCoderFactory.asciiCoder, false, false).sort(input);
+        assert input[0].equals("阿安");
+        assert input[40].equals("阿绯");
+        assert input[100].equals("阿桔");
     }
 
     @Test
@@ -38,6 +47,31 @@ public class HuskySortTest {
         Collections.shuffle(Arrays.asList(input));
         new PureHuskySort<>(HuskyCoderFactory.asciiCoder, false, false).sort(input);
         assertArrayEquals(expected, input);
+    }
+
+    @Test
+    public void sortEnglish1() {
+        String[] input = "she sells seashells by the seashore the shells she sells are surely seashells".split(" ");
+        String[] expected = "are by seashells seashells seashore sells sells she she shells surely the the".split(" ");
+        new PureHuskySort<>(HuskyCoderFactory.asciiCoder, false, false).sort(input);
+        assertArrayEquals(expected, input);
+    }
+
+    @Test
+    public void sortEnglish2() {
+        String[] input = "she sells seashells seashore shells she sells surely seashells".split(" ");
+        String[] expected = "seashells seashells seashore sells sells she she shells surely".split(" ");
+        new PureHuskySort<>(HuskyCoderFactory.asciiCoder, false, false).sort(input);
+        assertArrayEquals(expected, input);
+    }
+
+    @Test
+    public void sortEnglishFile3() throws URISyntaxException, IOException {
+        String[] input = FileReader.fileReader("ENG_1M.txt");
+        new PureHuskySort<>(HuskyCoderFactory.asciiCoder, false, false).sort(input);
+        assert input[0].equals("1\t!\t25992");
+        assert input[100].equals("100087\t7i\t3");
+        assert input[800].equals("100717\tAldebaran\t3");
     }
 
     @Test

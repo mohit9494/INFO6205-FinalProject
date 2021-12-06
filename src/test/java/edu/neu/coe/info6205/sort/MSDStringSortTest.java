@@ -46,9 +46,20 @@ public class MSDStringSortTest {
     }
 
     @Test
-    public void sortChinese0(){
-        String[] expected = new String[]{"阿安","阿彬","阿兵","阿冰冰","阿晨","阿称","阿丛","阿丹丹","阿德力","阿迪迪","阿迪江","阿迪雅","阿栋","阿繁","阿方","阿菲","阿飞儿","阿飞飞","阿芬","阿丰","阿夏","阿鲜","阿湘","阿晓","阿新","阿行","阿旭","阿轩","乔建雄","乔建业","乔建永","乔建云","乔建珍","乔建忠","乔江","乔江涛","乔娇","乔娇娇"};
-        String[] input = Arrays.copyOf(expected,expected.length);
+    public void sortEnglishFile3() throws URISyntaxException, IOException {
+        String[] input = FileReader.fileReader("ENG_1M.txt");
+        new MSDStringSort(input.length)
+                .withInsertionSortMSDOperator(InsertionSortMSD.SUBSTRING_BINARY_OPERATOR)
+                .sort(input);
+        assert input[0].equals("1\t!\t25992");
+        assert input[100].equals("100087\t7i\t3");
+        assert input[800].equals("100717\tAldebaran\t3");
+    }
+
+    @Test
+    public void sortChinese0() {
+        String[] expected = new String[]{"阿安", "阿彬", "阿兵", "阿冰冰", "阿晨", "阿称", "阿丛", "阿丹丹", "阿德力", "阿迪迪", "阿迪江", "阿迪雅", "阿栋", "阿繁", "阿方", "阿菲", "阿飞儿", "阿飞飞", "阿芬", "阿丰", "阿夏", "阿鲜", "阿湘", "阿晓", "阿新", "阿行", "阿旭", "阿轩", "乔建雄", "乔建业", "乔建永", "乔建云", "乔建珍", "乔建忠", "乔江", "乔江涛", "乔娇", "乔娇娇"};
+        String[] input = Arrays.copyOf(expected, expected.length);
         Collections.shuffle(Arrays.asList(input));
         new MSDStringSort(expected.length)
                 .withInsertionSortMSDOperator(InsertionSortMSD.PINYIN_CHAR_SUBSTRING_BINARY_OPERATOR)
