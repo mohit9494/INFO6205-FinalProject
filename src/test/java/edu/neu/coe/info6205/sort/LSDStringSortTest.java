@@ -78,6 +78,15 @@ public class LSDStringSortTest {
     }
 
     @Test
+    public void sortChineseFile1() throws URISyntaxException, IOException {
+        String[] input = FileReader.fileReader("shuffledChinese.txt");
+        new LSDStringSort().withUnaryOperator(StringSortAPI.PINYIN_STRING_SUPPLIER).sort(input);
+        assert input[0].equals("阿安");
+        assert input[40].equals("阿绯");
+        assert input[90].equals("阿骥");
+    }
+
+    @Test
     public void sortTelugu0() {
         String[] expected = new String[]{"అంటూ", "అడగ్గా", "అతిథిగా", "అది", "అనిల్", "అనిల్", "అన్నారు", "అన్‌స్టాపబుల్‌", "అలరించార", "ఆట", "ఆడుకున్నారు", "ఇద్దరితో", "ఈ", "ఈ", "ఈ", "ఎందుకో", "ఏది", "ఓ", "ఓ", "ఓ", "కార్యక్రమ", "కార్యక్రమానికి", "కోప్పడ్డారు", "చూపించి", "చేశారు", "తనకెంత", "తీసుకొచ్చిన", "దర్శకుడు", "దీన్ని", "దేనికి", "నటుడు", "నవ్వులు", "పంచారు", "పడితే", "పేరు", "ఫొటోను", "బాలకృష్ణ", "బాలకృష్ణ", "బాలకృష్ణ", "బాలకృష్ణ", "బ్రహ్మానందం", "బ్రహ్మానందం", "బ్రహ్మానందంపై", "మరో", "మాంచి", "రావిపూడి", "రావిపూడి", "విచ్చేసి", "వినోదం", "సంభాషించారు", "సమాధానం"};
         String[] input = Arrays.copyOf(expected, expected.length);

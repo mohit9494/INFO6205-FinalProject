@@ -81,15 +81,27 @@ public class MSDStringSortTest {
     }
 
     @Test
-    public void sortChinese2(){
-        String[] expected = new String[]{"阿安","阿彬","阿兵","阿冰冰","阿晨","阿称","阿丛","阿栋","阿繁","阿方","阿菲","阿丰","阿夏","阿鲜","阿行","阿旭","阿轩","乔建雄","乔建珍","乔建忠","乔江","乔江涛","乔娇","乔娇娇"};
-        String[] input = Arrays.copyOf(expected,expected.length);
+    public void sortChinese2() {
+        String[] expected = new String[]{"阿安", "阿彬", "阿兵", "阿冰冰", "阿晨", "阿称", "阿丛", "阿栋", "阿繁", "阿方", "阿菲", "阿丰", "阿夏", "阿鲜", "阿行", "阿旭", "阿轩", "乔建雄", "乔建珍", "乔建忠", "乔江", "乔江涛", "乔娇", "乔娇娇"};
+        String[] input = Arrays.copyOf(expected, expected.length);
         Collections.shuffle(Arrays.asList(input));
         new MSDStringSort(expected.length)
                 .withInsertionSortMSDOperator(InsertionSortMSD.PINYIN_CHAR_SUBSTRING_BINARY_OPERATOR)
                 .withUnaryOperator(StringSortAPI.PINYIN_STRING_SUPPLIER)
                 .sort(input);
         assertArrayEquals(expected, input);
+    }
+
+    @Test
+    public void sortChineseFile1() throws URISyntaxException, IOException {
+        String[] input = FileReader.fileReader("shuffledChinese.txt");
+        new MSDStringSort(input.length)
+                .withInsertionSortMSDOperator(InsertionSortMSD.PINYIN_CHAR_SUBSTRING_BINARY_OPERATOR)
+                .withUnaryOperator(StringSortAPI.PINYIN_STRING_SUPPLIER)
+                .sort(input);
+        assert input[0].equals("阿安");
+        assert input[40].equals("阿绯");
+        assert input[90].equals("阿骥");
     }
 
 
