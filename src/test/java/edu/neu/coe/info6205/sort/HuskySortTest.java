@@ -2,8 +2,11 @@ package edu.neu.coe.info6205.sort;
 
 import edu.neu.coe.info6205.sort.huskysort.HuskyCoderFactory;
 import edu.neu.coe.info6205.sort.huskysort.PureHuskySort;
+import edu.neu.coe.info6205.util.FileReader;
 import org.junit.Test;
 
+import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.Arrays;
 import java.util.Collections;
 
@@ -29,11 +32,40 @@ public class HuskySortTest {
     }
 
     @Test
-    public void sortChinese97(){
-        String[] expected = new String[]{"阿芬","阿丰","阿夏","阿鲜","阿湘","阿晓"};
-        String[] input = Arrays.copyOf(expected,expected.length);
+    public void sortChinese97() {
+        String[] expected = new String[]{"阿芬", "阿丰", "阿夏", "阿鲜", "阿湘", "阿晓"};
+        String[] input = Arrays.copyOf(expected, expected.length);
         Collections.shuffle(Arrays.asList(input));
         new PureHuskySort<>(HuskyCoderFactory.asciiCoder, false, false).sort(input);
         assertArrayEquals(expected, input);
+    }
+
+    @Test
+    public void sortTelugu0() {
+        String[] expected = new String[]{"అంటూ", "అడగ్గా", "అతిథిగా", "అది", "అనిల్", "అనిల్", "అన్నారు", "అన్‌స్టాపబుల్‌", "అలరించార", "ఆట", "ఆడుకున్నారు", "ఇద్దరితో", "ఈ", "ఈ", "ఈ", "ఎందుకో", "ఏది", "ఓ", "ఓ", "ఓ", "కార్యక్రమ", "కార్యక్రమానికి", "కోప్పడ్డారు", "చూపించి", "చేశారు", "తనకెంత", "తీసుకొచ్చిన", "దర్శకుడు", "దీన్ని", "దేనికి", "నటుడు", "నవ్వులు", "పంచారు", "పడితే", "పేరు", "ఫొటోను", "బాలకృష్ణ", "బాలకృష్ణ", "బాలకృష్ణ", "బాలకృష్ణ", "బ్రహ్మానందం", "బ్రహ్మానందం", "బ్రహ్మానందంపై", "మరో", "మాంచి", "రావిపూడి", "రావిపూడి", "విచ్చేసి", "వినోదం", "సంభాషించారు", "సమాధానం"};
+        String[] input = Arrays.copyOf(expected, expected.length);
+        Collections.shuffle(Arrays.asList(input));
+        new PureHuskySort<>(HuskyCoderFactory.asciiCoder, false, false).sort(input);
+        assertArrayEquals(expected, input);
+    }
+
+    @Test
+    public void sortTelugu2() {
+        String[] expected = new String[]{"అనిల్", "అన్నారు", "అన్‌స్టాపబుల్‌", "అలరించార", "ఆట", "ఆడుకున్నారు", "ఇద్దరితో", "ఈ", "ఈ", "ఈ", "ఎందుకో", "ఏది", "ఓ", "ఓ", "ఓ", "చూపించి", "చేశారు", "తనకెంత", "తీసుకొచ్చిన", "దర్శకుడు", "దీన్ని", "దేనికి", "నటుడు", "నవ్వులు", "పంచారు", "పడితే", "బాలకృష్ణ", "బాలకృష్ణ", "బ్రహ్మానందం", "బ్రహ్మానందం", "బ్రహ్మానందంపై", "మరో", "మాంచి", "రావిపూడి", "రావిపూడి", "విచ్చేసి", "వినోదం", "సంభాషించారు", "సమాధానం"};
+        String[] input = Arrays.copyOf(expected, expected.length);
+        Collections.shuffle(Arrays.asList(input));
+        new PureHuskySort<>(HuskyCoderFactory.asciiCoder, false, false).sort(input);
+        assertArrayEquals(expected, input);
+    }
+
+    @Test
+    public void sortTeluguFile3() throws URISyntaxException, IOException {
+        String[] input = FileReader.fileReader("Telugu_1K.txt");
+        new PureHuskySort<>(HuskyCoderFactory.asciiCoder, false, false).sort(input);
+        assert input[0].equals("అంగ్రేజోన్");
+        assert input[10].equals("అందుబాటు");
+        assert input[83].equals("అవుతా");
+        assert input[200].equals("ఎల్");
+        assert input[500].equals("తెస్తాడు");
     }
 }

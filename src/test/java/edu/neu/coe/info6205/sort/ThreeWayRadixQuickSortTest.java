@@ -1,8 +1,11 @@
 package edu.neu.coe.info6205.sort;
 
 import edu.neu.coe.info6205.sort.api.StringSortAPI;
+import edu.neu.coe.info6205.util.FileReader;
 import org.junit.Test;
 
+import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.Arrays;
 import java.util.Collections;
 
@@ -91,11 +94,22 @@ public class ThreeWayRadixQuickSortTest {
 
     @Test
     public void sortTelugu2() {
-        String[] expected = new String[]{"అనిల్","అన్నారు","అన్‌స్టాపబుల్‌","అలరించార","ఆట","ఆడుకున్నారు","ఇద్దరితో","ఈ","ఈ","ఈ","ఎందుకో","ఏది","ఓ","ఓ","ఓ","చూపించి","చేశారు","తనకెంత","తీసుకొచ్చిన","దర్శకుడు","దీన్ని","దేనికి","నటుడు","నవ్వులు","పంచారు","పడితే","బాలకృష్ణ","బాలకృష్ణ","బ్రహ్మానందం","బ్రహ్మానందం","బ్రహ్మానందంపై","మరో","మాంచి","రావిపూడి","రావిపూడి","విచ్చేసి","వినోదం","సంభాషించారు","సమాధానం"};
-        String[] input = Arrays.copyOf(expected,expected.length);
+        String[] expected = new String[]{"అనిల్", "అన్నారు", "అన్‌స్టాపబుల్‌", "అలరించార", "ఆట", "ఆడుకున్నారు", "ఇద్దరితో", "ఈ", "ఈ", "ఈ", "ఎందుకో", "ఏది", "ఓ", "ఓ", "ఓ", "చూపించి", "చేశారు", "తనకెంత", "తీసుకొచ్చిన", "దర్శకుడు", "దీన్ని", "దేనికి", "నటుడు", "నవ్వులు", "పంచారు", "పడితే", "బాలకృష్ణ", "బాలకృష్ణ", "బ్రహ్మానందం", "బ్రహ్మానందం", "బ్రహ్మానందంపై", "మరో", "మాంచి", "రావిపూడి", "రావిపూడి", "విచ్చేసి", "వినోదం", "సంభాషించారు", "సమాధానం"};
+        String[] input = Arrays.copyOf(expected, expected.length);
         Collections.shuffle(Arrays.asList(input));
         new ThreeWayRadixQuicksort<String>().sort(input);
         assertArrayEquals(expected, input);
+    }
+
+    @Test
+    public void sortTeluguFile3() throws URISyntaxException, IOException {
+        String[] input = FileReader.fileReader("Telugu_1K.txt");
+        new ThreeWayRadixQuicksort<String>().sort(input);
+        assert input[0].equals("అంగ్రేజోన్");
+        assert input[10].equals("అందుబాటు");
+        assert input[83].equals("అవుతా");
+        assert input[200].equals("ఎల్");
+        assert input[500].equals("తెస్తాడు");
     }
 
 

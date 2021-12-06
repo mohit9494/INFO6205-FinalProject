@@ -1,8 +1,11 @@
 package edu.neu.coe.info6205.sort;
 
 import edu.neu.coe.info6205.sort.api.StringSortAPI;
+import edu.neu.coe.info6205.util.FileReader;
 import org.junit.Test;
 
+import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.Arrays;
 import java.util.Collections;
 
@@ -111,4 +114,18 @@ public class MSDStringSortTest {
                 .sort(input);
         assertArrayEquals(expected, input);
     }
+
+    @Test
+    public void sortTeluguFile3() throws URISyntaxException, IOException {
+        String[] input = FileReader.fileReader("Telugu_1K.txt");
+        new MSDStringSort(input.length)
+                .withInsertionSortMSDOperator(InsertionSortMSD.SUBSTRING_BINARY_OPERATOR)
+                .sort(input);
+        assert input[0].equals("అంగ్రేజోన్");
+        assert input[10].equals("అందుబాటు");
+        assert input[83].equals("అవుతా");
+        assert input[200].equals("ఎల్");
+        assert input[500].equals("తెస్తాడు");
+    }
+
 }
