@@ -1,0 +1,121 @@
+SortName,Array length,Time in ms
+Husky Sort,Chinese,3999992,3853.0
+Tim Sort,Chinese,3999992,29613.0
+Dual Pivot Sort,Chinese,3999992,37195.0
+LSD Sort,Chinese,3999992,93046.0
+MSD Sort,Chinese,3999992,381577.0
+Three Way Radix Sort,Chinese,3999992,54343.0
+
+
+Husky Sort,Chinese,1999996,1489.0
+Tim Sort,Chinese,1999996,12612.0
+Dual Pivot Sort,Chinese,1999996,16867.0
+LSD Sort,Chinese,1999996,46104.0
+MSD Sort,Chinese,1999996,184588.0
+Three Way Radix Sort,Chinese,1999996,32316.0
+
+
+Husky Sort,Chinese,999998,1160.0
+Tim Sort,Chinese,999998,6785.0
+Dual Pivot Sort,Chinese,999998,9354.0
+LSD Sort,Chinese,999998,25117.0
+MSD Sort,Chinese,999998,80675.0
+Three Way Radix Sort,Chinese,999998,13871.0
+
+
+Husky Sort,Chinese,499999,370.0
+Tim Sort,Chinese,499999,2921.0
+Dual Pivot Sort,Chinese,499999,3895.0
+LSD Sort,Chinese,499999,12410.0
+MSD Sort,Chinese,499999,42032.0
+Three Way Radix Sort,Chinese,499999,6239.0
+
+
+Husky Sort,Chinese,249999,158.0
+Tim Sort,Chinese,249999,1304.0
+Dual Pivot Sort,Chinese,249999,1781.0
+LSD Sort,Chinese,249999,6154.0
+MSD Sort,Chinese,249999,22027.0
+Three Way Radix Sort,Chinese,249999,2928.0
+
+
+Husky Sort,English,442310,279.0
+Tim Sort,English,442310,334.0
+Dual Pivot Sort,English,442310,269.0
+LSD Sort,English,442310,3110.0
+MSD Sort,English,442310,6658.0
+Three Way Radix Sort,English,442310,174.0
+
+
+Husky Sort,English,221155,86.0
+Tim Sort,English,221155,138.0
+Dual Pivot Sort,English,221155,115.0
+LSD Sort,English,221155,1395.0
+MSD Sort,English,221155,6259.0
+Three Way Radix Sort,English,221155,80.0
+
+
+Husky Sort,English,110577,42.0
+Tim Sort,English,110577,64.0
+Dual Pivot Sort,English,110577,54.0
+LSD Sort,English,110577,657.0
+MSD Sort,English,110577,6116.0
+Three Way Radix Sort,English,110577,38.0
+
+
+Husky Sort,English,55288,18.0
+Tim Sort,English,55288,30.0
+Dual Pivot Sort,English,55288,24.0
+LSD Sort,English,55288,129.0
+MSD Sort,English,55288,2345.0
+Three Way Radix Sort,English,55288,16.0
+
+
+Husky Sort,English,27644,8.0
+Tim Sort,English,27644,13.0
+Dual Pivot Sort,English,27644,10.0
+LSD Sort,English,27644,36.0
+MSD Sort,English,27644,642.0
+Three Way Radix Sort,English,27644,6.0
+
+
+Husky Sort,Telugu,308568,108.0
+Tim Sort,Telugu,308568,167.0
+Dual Pivot Sort,Telugu,308568,164.0
+LSD Sort,Telugu,308568,752.0
+MSD Sort,Telugu,308568,38573.0
+Three Way Radix Sort,Telugu,308568,116.0
+
+
+Husky Sort,Telugu,154284,53.0
+Tim Sort,Telugu,154284,83.0
+Dual Pivot Sort,Telugu,154284,123.0
+LSD Sort,Telugu,154284,468.0
+MSD Sort,Telugu,154284,16892.0
+Three Way Radix Sort,Telugu,154284,115.0
+
+
+Husky Sort,Telugu,77142,59.0
+Tim Sort,Telugu,77142,44.0
+Dual Pivot Sort,Telugu,77142,64.0
+LSD Sort,Telugu,77142,635.0
+MSD Sort,Telugu,77142,6211.0
+Three Way Radix Sort,Telugu,77142,22.0
+
+
+Husky Sort,Telugu,38571,12.0
+Tim Sort,Telugu,38571,14.0
+Dual Pivot Sort,Telugu,38571,12.0
+LSD Sort,Telugu,38571,35.0
+MSD Sort,Telugu,38571,2286.0
+Three Way Radix Sort,Telugu,38571,9.0
+
+
+Husky Sort,Telugu,19285,5.0
+Tim Sort,Telugu,19285,7.0
+Dual Pivot Sort,Telugu,19285,5.0
+LSD Sort,Telugu,19285,21.0
+MSD Sort,Telugu,19285,1205.0
+Three Way Radix Sort,Telugu,19285,3.0
+
+
