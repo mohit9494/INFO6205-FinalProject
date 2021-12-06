@@ -42,11 +42,20 @@ public class TimSortTest {
     }
 
     @Test
-    public void sortEnglish2(){
+    public void sortEnglish2() {
         String[] input = "she sells seashells seashore shells she sells surely seashells".split(" ");
         String[] expected = "seashells seashells seashore sells sells she she shells surely".split(" ");
         new TimSort<String>().sort(input);
         assertArrayEquals(expected, input);
+    }
+
+    @Test
+    public void sortEnglishFile3() throws URISyntaxException, IOException {
+        String[] input = FileReader.fileReader("ENG_1M.txt");
+        new TimSort<String>().sort(input);
+        assert input[0].equals("1\t!\t25992");
+        assert input[100].equals("100087\t7i\t3");
+        assert input[800].equals("100717\tAldebaran\t3");
     }
 
     @Test
@@ -104,10 +113,23 @@ public class TimSortTest {
 
     @Test
     public void sortTelugu2() {
-        String[] expected = new String[]{"అనిల్","అన్నారు","అన్‌స్టాపబుల్‌","అలరించార","ఆట","ఆడుకున్నారు","ఇద్దరితో","ఈ","ఈ","ఈ","ఎందుకో","ఏది","ఓ","ఓ","ఓ","చూపించి","చేశారు","తనకెంత","తీసుకొచ్చిన","దర్శకుడు","దీన్ని","దేనికి","నటుడు","నవ్వులు","పంచారు","పడితే","బాలకృష్ణ","బాలకృష్ణ","బ్రహ్మానందం","బ్రహ్మానందం","బ్రహ్మానందంపై","మరో","మాంచి","రావిపూడి","రావిపూడి","విచ్చేసి","వినోదం","సంభాషించారు","సమాధానం"};
-        String[] input = Arrays.copyOf(expected,expected.length);
+        String[] expected = new String[]{"అనిల్", "అన్నారు", "అన్‌స్టాపబుల్‌", "అలరించార", "ఆట", "ఆడుకున్నారు", "ఇద్దరితో", "ఈ", "ఈ", "ఈ", "ఎందుకో", "ఏది", "ఓ", "ఓ", "ఓ", "చూపించి", "చేశారు", "తనకెంత", "తీసుకొచ్చిన", "దర్శకుడు", "దీన్ని", "దేనికి", "నటుడు", "నవ్వులు", "పంచారు", "పడితే", "బాలకృష్ణ", "బాలకృష్ణ", "బ్రహ్మానందం", "బ్రహ్మానందం", "బ్రహ్మానందంపై", "మరో", "మాంచి", "రావిపూడి", "రావిపూడి", "విచ్చేసి", "వినోదం", "సంభాషించారు", "సమాధానం"};
+        String[] input = Arrays.copyOf(expected, expected.length);
         Collections.shuffle(Arrays.asList(input));
         new TimSort<String>().sort(input);
         assertArrayEquals(expected, input);
     }
+
+    @Test
+    public void sortTeluguFile3() throws URISyntaxException, IOException {
+        String[] input = FileReader.fileReader("Telugu_1K.txt");
+        new TimSort<String>().sort(input);
+        assert input[0].equals("అంగ్రేజోన్");
+        assert input[10].equals("అందుబాటు");
+        assert input[83].equals("అవుతా");
+        assert input[200].equals("ఎల్");
+        assert input[500].equals("తెస్తాడు");
+    }
+
+
 }

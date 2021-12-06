@@ -22,7 +22,7 @@ public class Main {
     public static void main(String[] args) throws URISyntaxException, IOException {
 
         StringBuilder ouputBuilder = new StringBuilder();
-        ouputBuilder.append("SortName,").append("Array length,").append("Time in ms").append("\n");
+        ouputBuilder.append("SortName,").append("Language,").append("Array length,").append("Time in ms").append("\n");
         //read complete 4 million from chinese
         System.out.println("Starting benchmark on Chinese words");
         startBenchmarkOnSorts(FileReader.fileReader("shuffledChinese4M.txt"), Locale.CHINESE, true, ouputBuilder, "Chinese");
